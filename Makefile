@@ -48,7 +48,7 @@ all:
 		git clone https://github.com/peercoin/peercoin.git                          && \
 		cd ppcoin/src                                                                && \
 		CURRENT=`git tag | grep -P '^v[\d\.]+$$' | sort --version-sort | tail -1` && \
-		git checkout tags/$$CURRENT -b local-$$CURRENT   && \
+		git checkout tags/$$CURRENT -b local-$$CURRENT   \
 		#./autogen.sh                                                              && \
 		#./configure LDFLAGS="-L$(DB4DIR)/lib/" CPPFLAGS="-I$(DB4DIR)/include/";      \
 	fi
