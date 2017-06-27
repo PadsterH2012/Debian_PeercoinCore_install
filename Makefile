@@ -46,7 +46,7 @@ all:
 	fi
 	if [ ! -d peercoin ]; then                                                            \
 		git clone https://github.com/peercoin/peercoin.git                          && \
-		cd ppcoin/src                                                                && \
+		cd ppcoin/src/                                                                && \
 		CURRENT=`git tag | grep -P '^v[\d\.]+$$' | sort --version-sort | tail -1` && \
 		git checkout tags/$$CURRENT -b local-$$CURRENT   \
 		#./autogen.sh                                                              && \
@@ -55,7 +55,7 @@ all:
 
 install: all
 	cd peercoin;     \
-	  make -f makefile.unix clean; make -f makefile.unix USE_UPNP= ppcoind
+	  make -f makefile.unix clean; make -f makefile.unix USE_UPNP= ppcoind \
 	  #make install; \
 
 clean:
