@@ -44,7 +44,7 @@ all:
 		mkdir -p $(DB4DIR)                                                            && \
 		make install;                                                                    \
 	fi
-	if [ ! -d peercoin ]; then                                                            \
+	if [ ! -d ppcoin ]; then                                                            \
 		git clone https://github.com/peercoin/peercoin.git                          && \
 		cd ppcoin/src/                                                                && \
 		CURRENT=`git tag | grep -P '^v[\d\.]+$$' | sort --version-sort | tail -1` && \
@@ -55,10 +55,10 @@ all:
 
 install: all
 	cd peercoin;     \
-	  make -f makefile.unix clean; make -f makefile.unix USE_UPNP= ppcoind \
+	  make -f makefile.unix clean; make -f makefile.unix USE_UPNP= ppcoin \
 	  #make install; \
 
 clean:
-	rm -Rf peercoin
+	rm -Rf ppcoin
 	rm -Rf $(DB4VERSION)
 	rm -f $(DB4FILE)
